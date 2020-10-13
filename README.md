@@ -48,8 +48,6 @@ Command
 
 `kubectl apply -f app_ok.yaml`
 
-currently returning
+should return
 
-`Error from server (InternalError): error when creating "app_ok.yaml": Internal error occurred: failed calling webhook "grumpy.giantswarm.io": 0-length response`
-
-which is not the expected result. This shows that the webhook at least is triggered correctly, but the code inside the `quay.io/giantswarm/grumpy:1.0.0` image is incorrect.
+`pod/smooth-app created`.

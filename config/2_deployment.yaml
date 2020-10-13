@@ -19,7 +19,7 @@ spec:
     spec:
       containers:
         - name: webhook
-          image: quay.io/giantswarm/grumpy:1.0.0
+          image: prondzyn/grumpy:1.0.3
           imagePullPolicy: Always
           args:
             - -alsologtostderr

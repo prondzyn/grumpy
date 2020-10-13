@@ -63,7 +63,7 @@ func (gs *GrumpyServerHandler) serve(w http.ResponseWriter, r *http.Request) {
 		arResponse.Response.Allowed = true	
 	}
 
-	arResponse.APIVersion = "admission.k8s.io/v1"
+	arResponse.APIVersion = "admission.k8s.io/v1beta1"
 	arResponse.Kind = arRequest.Kind
 	arResponse.Response.UID = arRequest.Request.UID
 
