@@ -50,4 +50,4 @@ Command
 
 should return
 
-`pod/smooth-app created`.
+`pod/smooth-app created`
