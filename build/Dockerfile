@@ -2,7 +2,7 @@
 FROM golang:1.10-stretch AS build-env
 RUN mkdir -p /go/src/github.com/prondzyn/grumpy
 WORKDIR /go/src/github.com/prondzyn/grumpy
-COPY  . .
+COPY . .
 RUN useradd -u 10001 webhook
 RUN go get github.com/gogo/protobuf/proto
 RUN go get github.com/golang/glog

@@ -10,16 +10,16 @@ I used retired [kubeadm-dind-cluster](https://github.com/kubernetes-retired/kube
 `cd grumpy`
 
 ## Generate certificate
-`./gen_certs.sh`
+`./certs/generate.sh`
 
 ## Create secret
 `kubectl create secret generic grumpy -n default --from-file=key.pem=certs/grumpy-key.pem --from-file=cert.pem=certs/grumpy-crt.pem`
 
 ## Create webhook service
-`kubectl apply -f config/1_service.yaml`
+`kubectl apply -f webhook_config/service.yaml`
 
 ## Create webhook deployment
-`kubectl apply -f config/2_deployment.yaml`
+`kubectl apply -f webhook_config/deployment.yaml`
 
 ## Check if deployment succeed
 Command
@@ -31,22 +31,22 @@ should return
 `deployment "grumpy" successfully rolled out`
 
 ## Create webhook configuration
-`kubectl apply -f config/3_webhook.yaml`
+`kubectl apply -f webhook_config/webhook.yaml`
 
 ## Test invalid pod deployment rejection 
 Command
 
-`kubectl apply -f app_wrong.yaml` 
+`kubectl apply -f examples/invalid_pod.yaml` 
 
 should return
 
-`Error from server: error when creating "app_wrong.yaml": admission webhook "grumpy.giantswarm.io" denied the request: Keep calm and not add more crap in the cluster!`
+`Error from server: error when creating "examples/invalid_pod.yaml": admission webhook "grumpy.giantswarm.io" denied the request: Keep calm and not add more crap in the cluster!`
 
 ## Test valid pod deployment approval 
 
 Command
 
-`kubectl apply -f app_ok.yaml`
+`kubectl apply -f examples/valid_pod.yaml`
 
 should return
 

@@ -21,4 +21,4 @@ openssl x509 -req -in certs/grumpy.csr -CA certs/ca.crt -CAkey certs/ca.key -CAc
 
 # INJECT CA IN THE WEBHOOK CONFIGURATION
 export CA_BUNDLE=$(cat certs/ca.crt | base64 | tr -d '\n')
-cat config/3_webhook.yaml.template | envsubst > "config/3_webhook.yaml"
+cat webhook_config/webhook.yaml.template | envsubst > "webhook_config/webhook.yaml"

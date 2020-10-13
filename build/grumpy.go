@@ -53,13 +53,13 @@ func (gs *GrumpyServerHandler) serve(w http.ResponseWriter, r *http.Request) {
 		Response: &v1beta1.AdmissionResponse{
 			Allowed: false,
 			Result: &metav1.Status{
-				Message: "Keep calm and not add more crap in the cluster",
+				Message: "Keep calm and not add more crap in the cluster!",
 			},
 		},
 	}
 
 	if pod.Name == "smooth-app" {
-		fmt.Printf("the pod %s is up to the name standard", pod.Name)
+		fmt.Printf("The pod %s is up to the name standard.", pod.Name)
 		arResponse.Response.Allowed = true	
 	}
 
