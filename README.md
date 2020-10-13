@@ -10,7 +10,7 @@ I used retired [kubeadm-dind-cluster](https://github.com/kubernetes-retired/kube
 `cd grumpy`
 
 ## Generate certificate
-`./gen_cert.sh`
+`./gen_certs.sh`
 
 ## Create secret
 `kubectl create secret generic grumpy -n default --from-file=key.pem=certs/grumpy-key.pem --from-file=cert.pem=certs/grumpy-crt.pem`
